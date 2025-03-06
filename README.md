@@ -4,7 +4,7 @@ This is a web application made using HTML and CSS. It is an app that allows user
 
 ## 🚀 Features
 
-- ✨ Fully responsive design (TBD)
+- ✨ Fully responsive design 
 - 🎨 Custom CSS animations (TBD)
 - 🌙 Dark & Light mode (TBD)
 - TBD
