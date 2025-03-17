@@ -33,6 +33,17 @@
   </style>
 </head>
 <body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="adauga-datorii.html">Adaugă datorii</a></li>
+      <li><a href="plata-datorii.html">Plată datorii</a></li>
+      <li><a href="prieteni.html">Prieteni</a></li>
+    </ul>
+  </nav>
+</header>
 <menu class="menu">
   <button class="menu__item active" style="--bgColorItem: #ff8c00;" onclick="location.href='profil.html'">
     <svg class="icon" viewBox="0 0 24 24">
@@ -40,7 +51,6 @@
       <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
     </svg>
   </button>
-
   <button class="menu__item" style="--bgColorItem: #f54888;" onclick="location.href='adauga-datorii.html'">
     <svg class="icon" viewBox="0 0 24 24">
       <rect x="3" y="8" width="18" height="10" rx="2"/>
@@ -48,7 +58,6 @@
       <line x1="9" y1="8" x2="15" y2="8"/>
     </svg>
   </button>
-
   <button class="menu__item" style="--bgColorItem: #4343f5;" onclick="location.href='plata-datorii.html'">
     <svg class="icon" viewBox="0 0 24 24">
       <path d="M3 12h18v6H3z"/>
@@ -57,7 +66,6 @@
       <path d="M3 12s0 6 3 6h12c3 0 3-6 3-6"/>
     </svg>
   </button>
-
   <button class="menu__item" style="--bgColorItem: #e0b115;" onclick="location.href='prieteni.html'">
     <svg class="icon" viewBox="0 0 24 24">
       <circle cx="6" cy="8" r="3"/>
@@ -65,7 +73,6 @@
       <path d="M4 18v-3a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v3"/>
     </svg>
   </button>
-
   <button class="menu__item" style="--bgColorItem:#65ddb7;" onclick="location.href='index.html'">
     <svg class="icon" viewBox="0 0 24 24">
       <path d="M10 2h8v20h-8"/>
@@ -74,12 +81,27 @@
   </button>
   <div class="menu__border"></div>
 </menu>
-
-<div class="content">
-  <h1>Salut, când îmi dai datoria?</h1>
-  <p>Selectează o funcție din meniu.</p>
-</div>
-
-<script src="js/app.js" defer ></script>
+<main>
+  <section>
+    <h1>Salut, când îmi dai datoria?</h1>
+    <p>Selectează o funcție din meniu.</p>
+  </section>
+  <section>
+    <h2>Video explicativ</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+  </section>
+</main>
+<footer style="position: fixed; bottom: 10px; right: 10px; text-align: right;">
+  <div class="contact-info">
+    <p>Contact:</p>
+    <ul>
+      <li>📞 Telefon: <a href="tel:+40738657199x">+40738657199</a></li>
+      <li>📍 Adresă: <a href=https://www.google.com/local/place/fid/0x40b1ff472f47f047:0x493984726f0235f9/photosphere?iu=https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid%3D2S1LcRYb3k4aQuB-bz0_7Q%26cb_client%3Dsearch.gws-prod.gps%26yaw%3D120.647835%26pitch%3D0%26thumbfov%3D100%26w%3D0%26h%3D0&ik=CAISFjJTMUxjUlliM2s0YVF1Qi1iejBfN1E%3D&sa=X&ved=2ahUKEwidkbK1xfaLAxU8ExAIHbMLMeQQpx96BAhEEA4" target="_blank">Facultatea de Matematica si Informatica</a></li>
+      <li>📧 Email: <a href="mailto:tudorblidaru@gmail.com">tudorblidaru@gmail.com</a></li>
+      <li>💬 WhatsApp: <a href="https://wa.me/40738657199" target="_blank">Scrie-ne pe WhatsApp</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="js/app.js" defer></script>
 </body>
 </html>

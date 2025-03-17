@@ -22,7 +22,7 @@ body{
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  background-color: #ffb457;
+  background-color: #b2e0d4;
   -webkit-tap-highlight-color: transparent;
   transition: background-color var(--duration);
 
