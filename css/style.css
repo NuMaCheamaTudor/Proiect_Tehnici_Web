@@ -1,161 +1,191 @@
-html {
-
-  box-sizing: border-box;
-  --bgColorMenu : #1d1d27;
-  --duration: .7s;
-
+:root {
+  --bgColorMenu: #1d1d27;
+  --accentColor: #65ddb7;
+  --gapLarge: 2rem;
+  --gapMedium: 1rem;
+  --gapSmall: 0.5rem;
+  --paddingZone: 1rem;
+  --boxRadius: 12px;
+  --boxShadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --gradientBG: linear-gradient(135deg, #b2f7ef, #a0e9d9, #9ee7e3);
 }
 
-html *,
-html *::before,
-html *::after {
-
-  box-sizing: inherit;
-
-}
-
-body{
-
+body {
+  font-family: 'Indie Flower', cursive;
   margin: 0;
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  background-color: #b2e0d4;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color var(--duration);
-
+  padding: 0 var(--gapLarge);
+  background: var(--gradientBG);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.menu{
+header, main, footer {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: var(--paddingZone);
+  margin-bottom: var(--gapLarge);
+  border-radius: var(--boxRadius);
+  box-shadow: var(--boxShadow);
+  text-align: center;
+}
 
-  margin: 0;
+main section {
+  text-align: center;
+}
+
+.container-iframe {
   display: flex;
-  /* Works well with 100% width  */
-  width: 32.05em;
-  font-size: 1.5em;
-  padding: 0 2.85em;
-  position: relative;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: var(--gapMedium);
+  margin-top: var(--gapMedium);
+}
+
+.taburi-iframe {
+  margin-bottom: var(--gapSmall);
+}
+
+.taburi-iframe a {
+  display: inline-block;
+  margin: var(--gapSmall);
+  padding: 0.5rem 1rem;
   background-color: var(--bgColorMenu);
-
+  color: white;
+  border-radius: var(--boxRadius);
+  text-decoration: none;
+  border: 1px solid transparent;
 }
 
-.menu__item{
+.taburi-iframe a:hover {
+  background-color: var(--accentColor);
+  border-color: #fff;
+}
 
-  all: unset;
-  flex-grow: 1;
-  z-index: 100;
+iframe {
+  border-radius: var(--boxRadius);
+  box-shadow: var(--boxShadow);
+  max-width: 100%;
+}
+.hamburger-menu-container {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--gapMedium);
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 24px;
+  position: relative;
   cursor: pointer;
-  position: relative;
-  border-radius: 50%;
-  align-items: center;
-  will-change: transform;
-  justify-content: center;
-  padding: 0.55em 0 0.85em;
-  transition: transform var(--timeOut , var(--duration));
-
+  margin-bottom: 0.5rem;
 }
 
-.menu__item::before{
-
-  content: "";
-  z-index: -1;
-  width: 4.2em;
-  height: 4.2em;
-  border-radius: 50%;
-  position: absolute;
-  transform: scale(0);
-  transition: background-color var(--duration), transform var(--duration);
-
-}
-
-
-.menu__item.active {
-
-  transform: translate3d(0, -.8em , 0);
-
-}
-
-.menu__item.active::before{
-
-  transform: scale(1);
-  background-color: var(--bgColorItem);
-
-}
-.menu__item:hover {
-  transform: translateY(-5px) scale(1.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.menu__item:hover .icon {
-  stroke: #ffffff;
-  stroke-width: 2pt;
-  transition: stroke 0.3s ease;
-}
-
-.menu__item:hover::before {
-  transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-
-.icon{
-
-  width: 2.6em;
-  height: 2.6em;
-  stroke: white;
-  fill: transparent;
-  stroke-width: 1pt;
-  stroke-miterlimit: 10;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 400;
-
-}
-
-.menu__item.active .icon {
-
-  animation: strok 1.5s reverse;
-
-}
-
-@keyframes strok {
-
-  100% {
-
-    stroke-dashoffset: 400;
-
-  }
-
-}
-
-.menu__border{
-
-  left: 0;
-  bottom: 99%;
-  width: 10.9em;
-  height: 2.4em;
-  position: absolute;
-  clip-path: url(#menu);
-  will-change: transform;
+.hamburger-icon .bar {
+  height: 4px;
+  width: 100%;
   background-color: var(--bgColorMenu);
-  transition: transform var(--timeOut , var(--duration));
-
+  margin: 4px 0;
+  border-radius: 4px;
+  transition: 0.4s;
 }
 
-.svg-container {
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  gap: var(--gapSmall);
+}
 
-  width: 0;
-  height: 0;
+.nav-list.show {
+  display: flex;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  background-color: var(--bgColorMenu);
+  padding: 0.5rem 1rem;
+  border-radius: var(--boxRadius);
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.nav-list li a:hover {
+  background-color: var(--accentColor);
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  gap: var(--gapSmall);
+  animation: fadeCascade 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.nav-list.show {
+  display: flex;
+  opacity: 1;
+  animation: fadeCascade 0.6s ease forwards;
+}
+
+.nav-list.show li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInLeft 0.4s ease forwards;
+}
+
+.nav-list.show li:nth-child(1) { animation-delay: 0.1s; }
+.nav-list.show li:nth-child(2) { animation-delay: 0.2s; }
+.nav-list.show li:nth-child(3) { animation-delay: 0.3s; }
+.nav-list.show li:nth-child(4) { animation-delay: 0.4s; }
+.nav-list.show li:nth-child(5) { animation-delay: 0.5s; }
+.nav-list.show li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeCascade {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+body.dark-mode {
+  --bgColorMenu: #0f0f0f;
+  --accentColor: #65ddb7;
+  --gradientBG: linear-gradient(135deg, #111 0%, #1e1e1e 100%);
+  background: var(--gradientBG);
+  color: #f0f0f0;
+}
+
+body.dark-mode header,
+body.dark-mode main,
+body.dark-mode footer {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: #f0f0f0;
+}
+
+body.dark-mode .nav-list li a {
+  background-color: #222;
+  color: #fff;
+}
+
+body.dark-mode .nav-list li a:hover {
+  background-color: var(--accentColor);
+  color: #000;
+}
+
+body,
+header,
+main,
+footer {
+  transition: background-color 0.4s, color 0.4s;
 }
 
 
-@media screen and (max-width: 50em) {
-  .menu{
-    font-size: .8em;
-  }
-}

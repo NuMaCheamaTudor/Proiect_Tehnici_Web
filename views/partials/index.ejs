@@ -1,0 +1,25 @@
+<%- include("partials/head") %>
+<body>
+<%- include("partials/header") %>
+
+<main>
+  <section id="video">
+    <h2>Video explicativ</h2>
+    <div class="container-iframe">
+      <div class="taburi-iframe">
+        <a href="https://www.youtube.com/embed/v1N5pP8W7gU" target="ifr-video">Top 10 cele mai mari datorii din istorie</a>
+        <a href="https://www.youtube.com/embed/CvYKtL_4DmM" target="ifr-video">Cum investești inteligent banii</a>
+      </div>
+      <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/v1N5pP8W7gU" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="despre">
+    <h2>Despre aplicație</h2>
+    <p><strong><%= title %></strong> îți permite să îți monitorizezi toate <b>datoriile</b> față de <i>prieteni</i>, să le plătești la timp și să ții evidența cu <em>transparență</em>.</p>
+  </section>
+</main>
+
+<%- include("partials/footer") %>
+</body>
+</html>

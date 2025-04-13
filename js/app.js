@@ -1,42 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    "use strict";
+// app.js - serverul principal pentru Etapa 4
 
-    const body = document.body;
-    const bgColorsBody = ["#ffb457", "#ff96bd", "#9999fb", "#ffe797", "#cffff1"];
-    const menu = body.querySelector(".menu");
-    const menuItems = menu.querySelectorAll(".menu__item");
-    const menuBorder = menu.querySelector(".menu__border");
-    let activeItem = menu.querySelector(".active");
+const express = require('express');
+const path = require('path');
 
-    function clickItem(item, index) {
-        menu.style.removeProperty("--timeOut");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-        if (activeItem == item) return;
+// Setăm EJS ca view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-        if (activeItem) {
-            activeItem.classList.remove("active");
-        }
+// Servim fișiere statice din folderul public
+app.use(express.static(path.join(__dirname, 'public')));
 
-        item.classList.add("active");
-        body.style.backgroundColor = bgColorsBody[index];
-        activeItem = item;
-        offsetMenuBorder(activeItem, menuBorder);
-    }
+// Rute
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Da,ba,datoria!' });
+});
 
-    function offsetMenuBorder(element, menuBorder) {
-        const offsetActiveItem = element.getBoundingClientRect();
-        const left = Math.floor(offsetActiveItem.left - menu.offsetLeft - (menuBorder.offsetWidth  - offsetActiveItem.width) / 2) +  "px";
-        menuBorder.style.transform = `translate3d(${left}, 0 , 0)`;
-    }
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Autentificare' });
+});
 
-    offsetMenuBorder(activeItem, menuBorder);
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard', { title: 'Panou utilizator' });
+});
 
-    menuItems.forEach((item, index) => {
-        item.addEventListener("click", () => clickItem(item, index));
-    });
-
-    window.addEventListener("resize", () => {
-        offsetMenuBorder(activeItem, menuBorder);
-        menu.style.setProperty("--timeOut", "none");
-    });
+// Rulăm serverul
+app.listen(PORT, () => {
+    console.log(`Serverul rulează la http://localhost:${PORT}`);
 });

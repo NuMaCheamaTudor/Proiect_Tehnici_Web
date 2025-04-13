@@ -1,0 +1,22 @@
+<%- include("partials/head") %>
+<body>
+<%- include("partials/header") %>
+
+<main>
+  <section id="login">
+    <h2><%= title %></h2>
+    <form action="/dashboard" method="GET" class="login-form">
+      <label for="username">Nume utilizator:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Parolă:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Autentificare</button>
+    </form>
+  </section>
+</main>
+
+<%- include("partials/footer") %>
+</body>
+</html>
